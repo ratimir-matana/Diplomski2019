@@ -2,4 +2,4 @@
 Diplomski rad 2019 
 
 My final exam from 2019
-Data Science / Linear Regression
+Data Science with Python, Linear Regression practical example
