@@ -5,6 +5,7 @@ import pandas as pd               # biblioteka za analizu podataka
 import seaborn as sns             # biblioteka za vizualizaciju
 import matplotlib.pyplot as plt   # biblioteka za vizualizaciju
 from sklearn import linear_model  # uvoz linearnog modela iz sci-kit learn biblioteke
+import statsmodels.formula.api as smf   # uvoz za statističku tablicu linearne regresije
 
 # uvoz skupa podataka u formatu csv i pridruživanje skupa pandas dataframe nizu
 df = pd.read_csv("2018_FIFA_World_Cup_Squads.csv")
@@ -50,4 +51,11 @@ plt.ylabel('Golovi', fontsize=20)
 plt.scatter(df.Caps, df.Goals, color='red')
 plt.plot(df.Caps, reg.predict(df[['Caps']]), color='blue')
 plt.show()
+
+# Dodatak A - linearna regresija - tablica regresije
+
+# smf - statmodels formula, OLS - Ordinary Least Squares (method for estimating parameters in a linear regression model)
+model = smf.ols('y ~ X', data=df)
+results = model.fit()
+print(results.summary())
 
